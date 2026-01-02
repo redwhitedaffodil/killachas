@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 280px;
+            padding: 15px;
+            font-family:  'Segoe UI', sans-serif;
+            background: #1a1a1f;
+            color: #e0e0e0;
+        }
+        h2 {
+            margin: 0 0 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff3333;
+        }
+        .status.online { background: #00b894; }
+        .setting {
+            margin-bottom: 12px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #888;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            background: #2d2d35;
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        . checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #00b894;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background: #00a884; }
+        button. secondary {
+            background: #444;
+        }
+        button.secondary:hover { background: #555; }
+    </style>
+</head>
+<body>
+    <h2>
+        <span>♟ Chess Overlay</span>
+        <span class="status" id="status"></span>
+    </h2>
+    
+    <div class="setting">
+        <label>Server URL</label>
+        <input type="text" id="serverUrl" placeholder="ws://localhost:8000/ws">
+    </div>
+    
+    <div class="setting">
+        <label>Analysis Depth</label>
+        <input type="number" id="depth" min="1" max="50" value="22">
+    </div>
+    
+    <div class="setting">
+        <label>MultiPV Lines</label>
+        <select id="multiPV">
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+    
+    <div class="setting">
+        <label>Move Method</label>
+        <select id="moveMethod">
+            <option value="mouseclick">Mouse Click</option>
+            <option value="teleport">Teleport</option>
+        </select>
+    </div>
+    
+    <div class="setting checkbox-row">
+        <input type="checkbox" id="autoPlay">
+        <label for="autoPlay" style="margin: 0">Enable Auto-play</label>
+    </div>
+    
+    <div class="setting checkbox-row">
+        <input type="checkbox" id="enabled" checked>
+        <label for="enabled" style="margin:0">Enable Overlay</label>
+    </div>
+    
+    <button id="save">Save Settings</button>
+    <button id="reconnect" class="secondary">Reconnect to Server</button>
+    
+    <script src="popup. js"></script>
+</body>
+</html>
